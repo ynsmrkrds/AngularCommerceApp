@@ -1,0 +1,32 @@
+<div class="card">
+    <p-table [value]="addressesData.list" [style]="{ 'max-height': '400px', 'overflow-y': 'auto' }"
+        [tableStyle]="{ 'min-width': '50rem'}">
+        <ng-template pTemplate="caption">
+            <div class="flex align-items-center justify-content-between">
+                Addresses
+                <p-button icon="pi pi-plus" (onClick)="onCreateButtonClicked()"></p-button>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width:25%">Title</th>
+                <th style="width:25%">City</th>
+                <th style="width:25%">District</th>
+                <th style="width:25%">Street</th>
+                <th style="width:50%">Address</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-address>
+            <tr>
+                <td>{{ address.title }}</td>
+                <td>{{ address.city }}</td>
+                <td>{{ address.district }}</td>
+                <td>{{ address.street }}</td>
+                <td>{{ address.address }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <p-paginator (onPageChange)="onPageChange($event)" [rows]="size" [totalRecords]="addressesData.totalCount"
+        [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [rowsPerPageOptions]="[10, 20, 30]"></p-paginator>
+</div>

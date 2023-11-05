@@ -1,0 +1,38 @@
+<p-table [value]="basket" [tableStyle]="{'min-width': '60rem'}">
+    <ng-template pTemplate="caption">
+        <div class="flex align-items-center justify-content-between">
+            Basket
+            <p-button icon="pi pi-check" [disabled]="basket.length == 0" (onClick)="onDoneButtonClicked()"></p-button>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th style="width: 5rem"></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-basketItem>
+        <tr>
+            <td>
+                <div class="img-container"> <img [src]="getProductById(basketItem.productId).imageUrl"
+                        [alt]="getProductById(basketItem.productId).name" width="100" class="shadow-4" /></div>
+            </td>
+            <td>{{getProductById(basketItem.productId).name}}</td>
+            <td>{{(getProductById(basketItem.productId).price * basketItem.quantity) |
+                currency}}</td>
+            <td>{{basketItem.quantity}}</td>
+            <td>
+                <p-button icon="pi pi-times" (onClick)="removeItem(basketItem)"></p-button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        <div class="flex align-items-center justify-content-between">
+            <div>In total there are {{basket ? basket.length : 0 }} products.</div>
+            <div>Total price is {{totalPrice | currency}}.</div>
+        </div>
+    </ng-template>
+</p-table>

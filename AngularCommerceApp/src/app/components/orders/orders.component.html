@@ -1,0 +1,36 @@
+<p-accordion [activeIndex]="0">
+    <p-accordionTab *ngFor="let item of ordersData.list"
+        header="{{(item.createdDate | date)!.toString()}} - Address: {{item.address.address}}">
+        <p-table [value]="item.items" [tableStyle]="{'min-width': '60rem'}">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-orderItem>
+                <tr>
+                    <td>
+                        <div class="img-container"> <img [src]="orderItem.product.imageUrl"
+                                [alt]="orderItem.product.name" width="100" class="shadow-4" /></div>
+                    </td>
+                    <td>{{orderItem.product.name}}</td>
+                    <td>{{(orderItem.product.price * orderItem.quantity) |
+                        currency}}</td>
+                    <td>{{orderItem.quantity}}</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <div class="flex align-items-center justify-content-between">
+                    <div>In total there are {{item.items ? item.items.length : 0 }} products.</div>
+                    <div>Total price is {{item.totalPrice | currency}}.</div>
+                </div>
+            </ng-template>
+        </p-table>
+    </p-accordionTab>
+    <p-paginator (onPageChange)="onPageChange($event)" [rows]="size" [totalRecords]="ordersData.totalCount"
+        [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [rowsPerPageOptions]="[10, 20, 30]"></p-paginator>
+</p-accordion>

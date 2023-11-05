@@ -1,0 +1,25 @@
+<div class="card">
+    <p-dataView #dv [value]="productsData.list" layout="grid">
+        <ng-template let-product pTemplate="gridItem">
+            <div class="col-12 sm:col-6 lg:col-12 xl:col-3 p-2">
+                <div class="p-4 border-1 surface-border surface-card border-round">
+                    <div class="img-container">
+                        <img src="{{product.imageUrl}}" alt="{{product.name}}" />
+                    </div>
+                    <div class="product-grid-item-content">
+                        <h3>{{product.name}}</h3>
+                        <h4>{{product.description}}</h4>
+                    </div>
+                    <div class="flex align-items-center justify-content-between">
+                        <span class="text-2xl font-semibold">{{ '$' + product.price }}</span>
+                        <p-button icon="pi pi-shopping-cart" class="p-button-rounded"
+                            (onClick)="onAddToBasketButtonClicked(product.id)"></p-button>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-dataView>
+    <p-paginator (onPageChange)="onPageChange($event)" [rows]="size" [totalRecords]="productsData.totalCount"
+        [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [rowsPerPageOptions]="[10, 20, 30]"></p-paginator>
+</div>
