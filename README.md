@@ -1,4 +1,4 @@
-# Angular Commerce API
+# Angular Commerce App
 
 This project aims to create an e-commerce app, developed using the Angular.
 
