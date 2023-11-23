@@ -9,6 +9,8 @@ This project aims to create an e-commerce app, developed using the Angular.
 - Users can list products in the system.
 - Users can add addresses to their account and list their addresses.
 - Users can create orders and list their past orders.
+- Admin user can change user status.
+- Admin user can list users in the system.
 
 ## Technologies Used
 
