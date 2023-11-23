@@ -1,4 +1,8 @@
-<p-accordion [activeIndex]="0">
+<div *ngIf="ordersData.list.length == 0">
+    <h3>You don't have any orders. You can order something.</h3>
+</div>
+
+<p-accordion *ngIf="ordersData.list.length > 0" [activeIndex]="0">
     <p-accordionTab *ngFor="let item of ordersData.list"
         header="{{(item.createdDate | date)!.toString()}} - Address: {{item.address.address}}">
         <p-table [value]="item.items" [tableStyle]="{'min-width': '60rem'}">

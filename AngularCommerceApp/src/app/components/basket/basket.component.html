@@ -1,4 +1,8 @@
-<p-table [value]="basket" [tableStyle]="{'min-width': '60rem'}">
+<div *ngIf="basket.length == 0">
+    <h3>The basket is empty. You can add a few items to your basket.</h3>
+</div>
+
+<p-table *ngIf="basket.length > 0" [value]="basket" [tableStyle]="{'min-width': '60rem'}">
     <ng-template pTemplate="caption">
         <div class="flex align-items-center justify-content-between">
             Basket
