@@ -21,5 +21,3 @@ This project aims to create an e-commerce app, developed using the Angular.
 ## Demo Video
 
 https://github.com/ynsmrkrds/AngularCommerceApp/assets/45971663/838d5528-ffa4-4a15-9ccc-f334a86eb39d
-
->>>>>>> 886a224652be88730c2a19bcf4b7f7796083c63d
