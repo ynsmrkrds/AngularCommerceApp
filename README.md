@@ -17,3 +17,5 @@ This project aims to create an e-commerce app, developed using the Angular.
 - PrimeNG
 - GitHub for version control
 - Visual Studio Code to develop project
+
+"C:\Users\ynsmr\Downloads\İsimsiz video ‐ Clipchamp ile yapıldı.mp4"

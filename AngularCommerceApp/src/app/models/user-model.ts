@@ -1,14 +1,17 @@
 import {BaseModel} from "./base-model";
 
-export class UserModel extends BaseModel {
+export class UserModel {
+    id: string;
     name: string;
     surname: string;
     email: string;
+    isActive: boolean;
 
-    constructor(id: number, createdDate: Date, name: string, surname: string, email: string) {
-        super(id, createdDate);
+    constructor(id: string, name: string, surname: string, email: string, isActive: boolean) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
         this.email = email;
+        this.isActive = isActive;
     }
 }

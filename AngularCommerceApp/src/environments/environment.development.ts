@@ -4,5 +4,7 @@ export const environment = {
     register: "api/User/register",
     address: "api/Address",
     product: "api/Product",
-    order: "api/Order"
+    order: "api/Order",
+    user: "api/User",
+    changeUserStatus: "api/User/changeUserStatus"
 };

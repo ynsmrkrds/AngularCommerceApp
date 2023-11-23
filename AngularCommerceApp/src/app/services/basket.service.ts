@@ -29,4 +29,8 @@ export class BasketService {
   getBasket(): BasketItemModel[] {
     return this.basket;
   }
+
+  clearBasket() {
+    this.basket = [];
+  }
 }

@@ -1,5 +1,7 @@
 <div *ngIf="isHeaderVisible()" class="card">
-  <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+  <p-tabMenu [model]="items"></p-tabMenu>
+  <p-button label="Logout" [text]="true" severity="secondary" class="logout-button"
+    (onClick)="onLogoutButtonClicked()"></p-button>
 </div>
 
 <div class="body-content">

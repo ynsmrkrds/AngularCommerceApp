@@ -54,6 +54,7 @@ export class CheckoutComponent {
           });
 
           if (v.response!.isSuccessful) {
+            this.basketService.clearBasket();
             this.router.navigate(["products"]);
           }
         } else if (v.errors != null) {

@@ -10,7 +10,7 @@ import {CardModule} from 'primeng/card';
 import {InputTextModule} from 'primeng/inputtext';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ButtonModule} from 'primeng/button';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ToastModule} from 'primeng/toast';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AddressesComponent} from './components/addresses/addresses.component';
@@ -24,6 +24,10 @@ import {CheckoutComponent} from './components/checkout/checkout.component';
 import {DropdownModule} from 'primeng/dropdown';
 import {OrdersComponent} from './components/orders/orders.component';
 import {AccordionModule} from 'primeng/accordion';
+import {RequestInterceptor} from './interceptors/request.interceptor';
+import {NotAuthorizedComponent} from './components/not-authorized/not-authorized.component';
+import {UsersComponent} from './components/users/users.component';
+import {InputSwitchModule} from 'primeng/inputswitch';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,8 @@ import {AccordionModule} from 'primeng/accordion';
     BasketComponent,
     CheckoutComponent,
     OrdersComponent,
+    NotAuthorizedComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,9 +58,16 @@ import {AccordionModule} from 'primeng/accordion';
     TabMenuModule,
     DataViewModule,
     DropdownModule,
-    AccordionModule
+    AccordionModule,
+    InputSwitchModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

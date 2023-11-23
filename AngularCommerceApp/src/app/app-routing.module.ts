@@ -9,6 +9,8 @@ import {CreateAddressComponent} from './components/create-address/create-address
 import {BasketComponent} from './components/basket/basket.component';
 import {CheckoutComponent} from './components/checkout/checkout.component';
 import {OrdersComponent} from './components/orders/orders.component';
+import {NotAuthorizedComponent} from './components/not-authorized/not-authorized.component';
+import {UsersComponent} from './components/users/users.component';
 
 const routes: Routes = [
   {
@@ -48,6 +50,15 @@ const routes: Routes = [
     path: "address/create",
     component: CreateAddressComponent,
     canActivate: [userGuard]
+  },
+  {
+    path: "admin/users",
+    component: UsersComponent,
+    canActivate: [userGuard]
+  },
+  {
+    path: "notAuthorized",
+    component: NotAuthorizedComponent
   },
   {
     path: "",
